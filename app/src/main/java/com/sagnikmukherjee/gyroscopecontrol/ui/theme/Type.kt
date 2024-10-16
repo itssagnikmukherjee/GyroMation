@@ -2,9 +2,16 @@ package com.sagnikmukherjee.gyroscopecontrol.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.sagnikmukherjee.gyroscopecontrol.R
+
+val AvengerFont = FontFamily(
+    Font(R.font.avengence, FontWeight.Normal),
+    Font(R.font.avenganceyolo, FontWeight.Bold)
+)
 
 // Set of Material typography styles to start with
 val Typography = Typography(
