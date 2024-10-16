@@ -14,6 +14,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -24,6 +25,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -63,7 +65,7 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier.padding(innerPadding)
                     ) {
-                        GyroscopeImage(R.drawable.wolverine,"Wolverine")
+                        GyroscopeImage(R.drawable.wolverine,"Wolverine", nickName = "Logan","Healing Factor","Mutant", color = Color.Yellow)
 //                        GyroscopeImage()
                     }
                 }
@@ -73,7 +75,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GyroscopeImage(img: Int, heroName:String) {
+fun GyroscopeImage(img: Int, heroName:String, nickName:String, powers:String, team:String, color: Color) {
     val context = LocalContext.current
     var rotationX by remember { mutableStateOf(0f) }
     var rotationY by remember { mutableStateOf(0f) }
@@ -102,7 +104,7 @@ fun GyroscopeImage(img: Int, heroName:String) {
         sensorManager.registerListener(listener, gyroscopeSensor, SensorManager.SENSOR_DELAY_GAME)
     }
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize().padding(40.dp)
     ){
     Column(
         modifier = Modifier.fillMaxSize().zIndex(2f),
@@ -116,11 +118,18 @@ fun GyroscopeImage(img: Int, heroName:String) {
             color = Color.White,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.End,
-            modifier = Modifier.offset(x=40.dp).graphicsLayer(
+            modifier = Modifier.offset(x=50.dp).graphicsLayer(
                 rotationX = rotationY,
                 rotationY = rotationX
             )
         )
+        Row {Icon(imageVector = Icons.Default.Build, contentDescription = null)
+            Text(text="$nickName")}
+        Row {Icon(imageVector = Icons.Default.Build, contentDescription = null)
+            Text(text="$powers")}
+        Row {Icon(imageVector = Icons.Default.Build, contentDescription = null)
+            Text(text="$team")}
+
         Spacer(Modifier.height(60.dp))
         Image(
             painter = painterResource(id = img),
@@ -137,20 +146,20 @@ fun GyroscopeImage(img: Int, heroName:String) {
         Box(
             modifier = Modifier
                 .size(350.dp)
-                .scale(0.9f)
+                .scale(0.8f)
                 .offset(x = (-190).dp, y = 300.dp)
                 .clip(shape = RoundedCornerShape(50))
-                .background(Color.Yellow)
+                .background(color)
                 .zIndex(1f)
         )
         IconButton(onClick = {}, modifier = Modifier.clip(RoundedCornerShape(50)).size(60.dp).align(Alignment.BottomEnd), colors = IconButtonColors(
-            containerColor = Color.Yellow,
+            containerColor = color,
             contentColor = Color.Black,
             disabledContainerColor = Color.White,
             disabledContentColor = Color.White
         )
         ) {
-            Icon(imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null, modifier = Modifier.size(70.dp))
+            Icon(imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null, modifier = Modifier.size(50.dp))
         }
     }
 }
