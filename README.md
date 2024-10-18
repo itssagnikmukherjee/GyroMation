@@ -47,5 +47,5 @@ Feel free to submit pull requests or report issues to make this project even mor
 
 ---
 
-**Created by [Sagnik Mukherjee](https://github.com/itssagnikmukherjee**  
+**Created by [Sagnik Mukherjee](https://github.com/itssagnikmukherjee)**  
 If you found this project interesting, give it a ⭐ on GitHub!
