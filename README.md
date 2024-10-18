@@ -6,7 +6,8 @@ This project demonstrates the creation of a **comic-like effect** using the gyro
 
 ## 🎬 Demo
 
-Check out this demo of the comic-like effect in action!  
+https://github.com/user-attachments/assets/d7847396-b9ac-405d-8293-433d815079ec
+
 
 ## 📲 Permissions
 
