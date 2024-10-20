@@ -1,7 +1,5 @@
 # Comic-like Effect with Gyroscopic Sensor 📱🎨
 
-## Overview
-
 This project demonstrates the creation of a **comic-like effect** using the gyroscopic sensor in mobile devices. It allows users to interact with superheroes displayed on the screen by tilting their device, creating dynamic movement and engaging animations, just like in comics!
 
 ## 🎬 Demo
